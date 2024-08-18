@@ -1,10 +1,10 @@
 function HornedBeast (props) {
     return(
         <>
-            <h2>El titulo de la imagen es: {props.title}</h2>
-            <p>Descripción de imagen: {props.description}</p>
-            <img src={props.imgUrl} style={{width:'80px'}} alt={props.title}/>
-            <p>mi edad es: {props.edad}</p>
+            <h2>{props.title}</h2>
+            <img src={props.imgUrl} style={{width:'100px'}} alt={props.title}/>
+            <p>{props.description}</p>
+            <p>Cantidad de Cuernos: {props.horns}</p>
         </>
     );
 }
