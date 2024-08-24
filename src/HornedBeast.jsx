@@ -1,12 +1,33 @@
-function HornedBeast (props) {
-    return(
+import { useState } from "react";
+import { Card, Button } from 'react-bootstrap'
+
+function HornedBeast(props) {
+
+    const [clicks, setClicks] = useState(0);
+
+    function addCounter() {
+        setClicks(clicks + 1);
+        console.log(clicks);
+    }
+
+    return (
         <>
-            <h2>{props.title}</h2>
-            <img src={props.imgUrl} style={{width:'100px'}} alt={props.title}/>
-            <p>{props.description}</p>
-            <p>Cantidad de Cuernos: {props.horns}</p>
+     
+
+            <Card onClicl={()=>props.mostrarModal(props.title)}style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={props.imageUrl} alt={props.title} />
+                <Card.Body>
+                    <Card.Title>{props.title}</Card.Title>
+                    <Card.Text>
+                        <p>Descripción : {props.description}</p>
+                        <p>Número de cuernos: {props.horns}</p>
+                        <p>Palabra clave : {props.keyword}</p>
+                    </Card.Text>
+                    <Button onClick={addCounter} variant="primary">Me gusta : {clicks}</Button>
+                </Card.Body>
+            </Card>
         </>
+
     );
 }
-
 export default HornedBeast;
